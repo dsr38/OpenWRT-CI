@@ -1,0 +1,42 @@
+# 京东云亚瑟 RE-SS-01 专属配置（Scripts/Settings.sh 会自动将本文件追加到 .config 末尾）
+
+# ================= 1. 明确禁用 Docker =================
+CONFIG_PACKAGE_luci-app-dockerman=n
+CONFIG_PACKAGE_docker=n
+CONFIG_PACKAGE_dockerd=n
+CONFIG_PACKAGE_containerd=n
+
+# ================= 2. 代理插件（OpenClash + Nikki + HomeProxy） =================
+CONFIG_PACKAGE_luci-app-homeproxy=y
+CONFIG_PACKAGE_luci-app-openclash=y
+CONFIG_PACKAGE_luci-app-nikki=y
+
+# ================= 3. USB 共享上网补全 + 多线备份 =================
+# GENERAL.txt 已包含 kmod-usb3/usb-net-rndis/cdc-ether/ipheth/usbmuxd/libimobiledevice
+CONFIG_PACKAGE_kmod-usb2=y
+CONFIG_PACKAGE_luci-app-mwan3=y
+
+# ================= 4. CPU 调频/超频界面插件 =================
+# GENERAL.txt 已包含 cpufreq 底层组件，此处启用 LuCI 网页管理界面
+CONFIG_PACKAGE_luci-app-cpufreq=y
+
+# ================= 5. 其他常用插件 =================
+# DNS 分流与去广告
+CONFIG_PACKAGE_luci-app-mosdns=y
+CONFIG_PACKAGE_luci-app-adguardhome=y
+
+# 远程访问与异地组网
+CONFIG_PACKAGE_luci-app-ddns-go=y
+CONFIG_PACKAGE_luci-app-zerotier=y
+CONFIG_PACKAGE_luci-app-easytier=y
+
+# 系统运维与实用工具
+CONFIG_PACKAGE_luci-app-ttyd=y
+CONFIG_PACKAGE_luci-app-ramfree=y
+CONFIG_PACKAGE_luci-app-nlbwmon=y
+CONFIG_PACKAGE_luci-app-diskman=y
+CONFIG_PACKAGE_luci-app-netspeedtest=y
+
+# Argon 主题
+CONFIG_PACKAGE_luci-theme-argon=y
+CONFIG_PACKAGE_luci-app-argon-config=y
