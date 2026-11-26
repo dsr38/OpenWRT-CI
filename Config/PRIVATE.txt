@@ -35,7 +35,8 @@ CONFIG_PACKAGE_luci-app-ttyd=y
 CONFIG_PACKAGE_luci-app-ramfree=y
 CONFIG_PACKAGE_luci-app-nlbwmon=y
 CONFIG_PACKAGE_luci-app-diskman=y
-CONFIG_PACKAGE_luci-app-netspeedtest=y
+# netspeedtest 依赖的 python3-email / python3-pkg-resources 在新版 ImmortalWrt 源中已移除，会导致 apk 打包报错
+CONFIG_PACKAGE_luci-app-netspeedtest=n
 
 # Argon 主题
 CONFIG_PACKAGE_luci-theme-argon=y
